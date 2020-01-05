@@ -16,6 +16,7 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: 3.8
+
       - name: Install Poetry
         uses: dschep/install-poetry-action@v1.2
 
@@ -32,9 +33,11 @@ jobs:
         run: |
           poetry config settings.virtualenvs.in-project false
           poetry config settings.virtualenvs.path ~/.virtualenvs
+
       - name: Install Dependencies
         run: poetry install
         if: steps.cache.outputs.cache-hit != 'true'
+        
       - name: Test with pytest
         run: poetry run pytest -n 2
 
