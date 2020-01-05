@@ -4,3 +4,6 @@ def test_foo():
 
 def test_bar():
     assert True
+
+def test_this_too():
+  assert True
